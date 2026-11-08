@@ -1,10 +1,12 @@
-export default function Home(){
+import HeroLayout from "@/component/hero/HeroLayout";
 
-  return(
-    <section>
-      <div>
-        <h1>HomiFi</h1>
-      </div>
-    </section>
-  )
+
+
+
+export default function HomePage() {
+  return (
+    <main>
+      <HeroLayout />
+    </main>
+  );
 }
