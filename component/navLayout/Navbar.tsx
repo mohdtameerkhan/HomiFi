@@ -1,6 +1,4 @@
-
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 import { navigation } from "./navigation";
@@ -10,7 +8,6 @@ export default function Navbar() {
 
   return (
     <nav className="relative z-50 flex items-center justify-between border-b border-white/10 bg-[#0B1F3A] px-8 py-4 text-white shadow-md">
-
       {/* Logo */}
       <Link
         href="/"

@@ -41,7 +41,7 @@ export async function propertyDetails(
 
   const data: PropertyDetailsResponse = await response.json();
 
-  //console.log(data)
+ // console.log(data)
 
   return data;
 }

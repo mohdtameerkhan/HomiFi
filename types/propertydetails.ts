@@ -10,6 +10,8 @@ export type PropertyDetail = {
   listing_id: string;
   status: string;
   list_price: number;
+  list_price_min?:number;
+  list_price_max:number;
   price_per_sqft: number | null;
   hoa_fee: number | null;
   href: string;
@@ -25,6 +27,10 @@ export type PropertyDetail = {
   details: {
     beds?: number | null;
     baths?: string | number | null;
+    baths_max?:string | number | null;
+    beds_max?:string | number | null;
+    sqft_max?:string | number | null;
+    year_built?:string | number | null;
     sqft?: number | null;
     [key: string]: unknown;
   };
