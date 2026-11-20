@@ -28,7 +28,7 @@ export default function HeroLayout (){
 
             if (!location) return;
 
-            const params = new URLSearchParams({address:location})
+            const params = new URLSearchParams({location})
             
             if(mode === "sell")
             {
