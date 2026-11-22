@@ -1,6 +1,15 @@
+
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
+import {
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
+
 import { navigation } from "./navigation";
 
 export default function Navbar() {
@@ -8,6 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="relative z-50 flex items-center justify-between border-b border-white/10 bg-[#0B1F3A] px-8 py-4 text-white shadow-md">
+
       {/* Logo */}
       <Link
         href="/"
@@ -88,25 +98,38 @@ export default function Navbar() {
           </Link>
         </li>
 
-        {/* Login */}
-        <li>
-          <Link
-            href="/login"
-            className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:text-blue-300"
-          >
-            Log in
-          </Link>
-        </li>
+        {/* Logged-out users */}
+<Show when="signed-out">
+  <li>
+    <SignInButton mode="redirect">
+      <button
+        type="button"
+        className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-100 transition-colors hover:text-blue-300"
+      >
+        Log in
+      </button>
+    </SignInButton>
+  </li>
 
-        {/* Sign up */}
-        <li>
-          <Link
-            href="/signup"
-            className="rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
-          >
-            Sign up
-          </Link>
-        </li>
+  <li>
+    <SignUpButton mode="redirect">
+      <button
+        type="button"
+        className="rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-400"
+      >
+        Sign up
+      </button>
+    </SignUpButton>
+  </li>
+</Show>
+
+{/* Logged-in users */}
+<Show when="signed-in">
+  <li className="flex items-center px-3">
+    <UserButton />
+  </li>
+</Show>
+
       </ul>
     </nav>
   );
