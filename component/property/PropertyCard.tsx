@@ -38,9 +38,11 @@ export default function PropertyCard({
     >
       <article>
         <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-100 to-blue-100">
+          
           {imageUrl ? (
             <Image  
               src={imageUrl}
+              
               alt={`Property at ${address}`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"

@@ -1,6 +1,8 @@
 
+import { getHighResolutionImageUrl } from "@/app/utils/image";
 import type { Property } from "@/types/property";
 import type { PropertyListingFilters } from "@/types/search";
+
 
 
 type RealityApiListing = {
@@ -37,6 +39,7 @@ type RealityApiResponse = {
   searchResults?: RealityApiListing[];
 };
 
+
 function mapListing(listing: RealityApiListing): Property {
   const address = listing.address;
 
@@ -55,7 +58,7 @@ function mapListing(listing: RealityApiListing): Property {
     propertyType: listing.property_type ?? "Unknown",
     latitude: address?.latitude ?? 0,
     longitude: address?.longitude ?? 0,
-    imageUrl: listing.primary_photo ?? null,
+    imageUrl: getHighResolutionImageUrl(listing.primary_photo),
     listingUrl: listing.href ?? null,
     description: listing.description_text ?? null,
   };
@@ -113,7 +116,8 @@ export async function getPropertyListings({
 
   const data: RealityApiResponse = await response.json();
 
-// console.log(data)
+//console.log(data)
+
   
  return (data.searchResults ?? [])
   .filter(

@@ -13,6 +13,10 @@ export default function PropertyCardDetails({
   const details = detail.details;
   const address = detail.address;
 
+  console.log(property)
+
+
+
   const formatMoney = (value: number | null | undefined) =>
     value != null
       ? `$${value.toLocaleString("en-US")}`

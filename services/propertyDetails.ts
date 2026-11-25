@@ -1,3 +1,4 @@
+import { getHighResolutionImageUrl } from "@/app/utils/image";
 import { PropertyDetailsResponse } from "@/types/propertydetails";
 
 
@@ -43,5 +44,14 @@ export async function propertyDetails(
 
  // console.log(data)
 
-  return data;
+ return {
+  ...data,
+  detail: {
+    ...data.detail,
+    photos: data.detail.photos.map((photo) => ({
+      ...photo,
+      href: getHighResolutionImageUrl(photo.href) ?? photo.href,
+    })),
+  },
+};
 }

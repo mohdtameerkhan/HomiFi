@@ -34,6 +34,7 @@ const properties = await getPropertyListings({
   maxPrice,
   mode,
 });
+//console.log(properties)
 
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-12 sm:px-8">
